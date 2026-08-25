@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyFlow — Smart Study Planner</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background decoration -->
+    <div class="background-shape shape-one"></div>
+    <div class="background-shape shape-two"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">✦</div>
+            <div>
+                <h2>StudyFlow</h2>
+                <span>Smart Study Planner</span>
+            </div>
+        </div>
+
+        <nav>
+            <p class="menu-title">MENU</p>
+
+            <a href="#" class="nav-item active">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>◫</span>
+                My Planner
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>◈</span>
+                Subjects
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>◷</span>
+                Focus Timer
+            </a>
+
+            <p class="menu-title">INSIGHTS</p>
+
+            <a href="#" class="nav-item">
+                <span>⌁</span>
+                Statistics
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>♡</span>
+                Study Streak
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="quote-card">
+                <span>✦</span>
+                <p>Small progress<br>is still progress.</p>
+            </div>
+
+            <a href="#" class="nav-item">
+                <span>⚙</span>
+                Settings
+            </a>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <!-- HEADER -->
+        <header class="topbar">
+
+            <div class="mobile-logo">
+                ✦ StudyFlow
+            </div>
+
+            <div class="top-actions">
+                <button class="icon-button" id="themeBtn">☼</button>
+                <button class="notification">
+                    ♧
+                    <span></span>
+                </button>
+
+                <div class="profile">
+                    <div class="avatar">L</div>
+                    <div>
+                        <strong>Leora</strong>
+                        <small>Student</small>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- WELCOME -->
+        <section class="welcome">
+
+            <div>
+                <p class="date" id="currentDate"></p>
+
+                <h1>
+                    Good morning,
+                    <span>Leora!</span> ✨
+                </h1>
+
+                <p class="subtitle">
+                    Ready to make today a productive one?
+                </p>
+            </div>
+
+            <button class="add-task-btn" id="openModal">
+                <span>＋</span>
+                Add New Task
+            </button>
+
+        </section>
+
+
+        <!-- STAT CARDS -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <div class="stat-icon purple">◔</div>
+                    <span class="trend">+12%</span>
+                </div>
+
+                <p>Today's Progress</p>
+
+                <div class="stat-value">
+                    <h2 id="progressValue">68%</h2>
+
+                    <div class="mini-progress">
+                        <div id="progressBar"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <div class="stat-icon peach">✓</div>
+                    <span class="trend neutral">Today</span>
+                </div>
+
+                <p>Tasks Completed</p>
+
+                <div class="stat-value">
+                    <h2 id="completedCount">5</h2>
+                    <span class="muted">/ 8 tasks</span>
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <div class="stat-icon yellow">🔥</div>
+                    <span class="trend">+2 days</span>
+                </div>
+
+                <p>Study Streak</p>
+
+                <div class="stat-value">
+                    <h2>7</h2>
+                    <span class="muted">days</span>
+                </div>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <div class="stat-icon blue">◷</div>
+                    <span class="trend">This week</span>
+                </div>
+
+                <p>Study Time</p>
+
+                <div class="stat-value">
+                    <h2>14.5</h2>
+                    <span class="muted">hours</span>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- DASHBOARD GRID -->
+        <section class="dashboard-grid">
+
+            <!-- TODAY'S PLAN -->
+            <div class="card tasks-card">
+
+                <div class="card-header">
+                    <div>
+                        <p class="eyebrow">YOUR SCHEDULE</p>
+                        <h2>Today's Plan</h2>
+                    </div>
+
+                    <button class="view-btn">View All →</button>
+                </div>
+
+
+                <div class="task-list" id="taskList">
+
+                    <div class="task completed">
+                        <div class="task-check">✓</div>
+
+                        <div class="task-info">
+                            <h3>Review Calculus Notes</h3>
+                            <p>Mathematics · 45 min</p>
+                        </div>
+
+                        <span class="priority low">Low</span>
+                    </div>
+
+
+                    <div class="task">
+                        <div class="task-check">○</div>
+
+                        <div class="task-info">
+                            <h3>Quantum Gates & Circuits</h3>
+                            <p>Quantum Computing · 60 min</p>
+                        </div>
+
+                        <span class="priority high">High</span>
+                    </div>
+
+
+                    <div class="task">
+                        <div class="task-check">○</div>
+
+                        <div class="task-info">
+                            <h3>JavaScript Functions</h3>
+                            <p>Web Development · 45 min</p>
+                        </div>
+
+                        <span class="priority medium">Medium</span>
+                    </div>
+
+
+                    <div class="task">
+                        <div class="task-check">○</div>
+
+                        <div class="task-info">
+                            <h3>Read Research Paper</h3>
+                            <p>Artificial Intelligence · 30 min</p>
+                        </div>
+
+                        <span class="priority medium">Medium</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- STUDY NEXT -->
+            <div class="card study-next">
+
+                <div class="card-header">
+                    <div>
+                        <p class="eyebrow">SMART SUGGESTION</p>
+                        <h2>Study Next</h2>
+                    </div>
+
+                    <div class="sparkle">✦</div>
+                </div>
+
+
+                <div class="recommendation">
+
+                    <div class="subject-icon">⚛</div>
+
+                    <div>
+                        <span class="recommend-label">RECOMMENDED</span>
+                        <h3>Quantum Computing</h3>
+                        <p>Quantum Gates & Circuits</p>
+                    </div>
+
+                </div>
+
+
+                <div class="reason">
+                    <span>💡</span>
+                    <p>
+                        This task has high priority and
+                        is due today.
+                    </p>
+                </div>
+
+                <button class="start-btn" id="startFocus">
+                    Start Focus Session →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- BOTTOM GRID -->
+        <section class="bottom-grid">
+
+            <!-- WEEKLY ACTIVITY -->
+            <div class="card activity-card">
+
+                <div class="card-header">
+                    <div>
+                        <p class="eyebrow">OVERVIEW</p>
+                        <h2>Weekly Activity</h2>
+                    </div>
+
+                    <select>
+                        <option>This Week</option>
+                        <option>Last Week</option>
+                    </select>
+                </div>
+
+
+                <div class="chart">
+
+                    <div class="chart-y">
+                        <span>4h</span>
+                        <span>3h</span>
+                        <span>2h</span>
+                        <span>1h</span>
+                        <span>0h</span>
+                    </div>
+
+                    <div class="bars">
+
+                        <div class="bar-group">
+                            <div class="bar" style="height: 45%"></div>
+                            <span>Mon</span>
+                        </div>
+
+                        <div class="bar-group">
+                            <div class="bar" style="height: 70%"></div>
+                            <span>Tue</span>
+                        </div>
+
+                        <div class="bar-group">
+                            <div class="bar" style="height: 55%"></div>
+                            <span>Wed</span>
+                        </div>
+
+                        <div class="bar-group">
+                            <div class="bar active-bar" style="height: 85%"></div>
+                            <span>Thu</span>
+                        </div>
+
+                        <div class="bar-group">
+                            <div class="bar" style="height: 62%"></div>
+                            <span>Fri</span>
+                        </div>
+
+                        <div class="bar-group">
+                            <div class="bar" style="height: 35%"></div>
+                            <span>Sat</span>
+                        </div>
+
+                        <div class="bar-group">
+                            <div class="bar" style="height: 25%"></div>
+                            <span>Sun</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SUBJECT PROGRESS -->
+            <div class="card subjects-card">
+
+                <div class="card-header">
+                    <div>
+                        <p class="eyebrow">PROGRESS</p>
+                        <h2>My Subjects</h2>
+                    </div>
+
+                    <button class="view-btn">See All →</button>
+                </div>
+
+
+                <div class="subject-row">
+
+                    <div class="subject-name">
+                        <div class="round-icon purple-bg">⚛</div>
+                        <span>Quantum Computing</span>
+                    </div>
+
+                    <div class="subject-progress">
+                        <div class="progress-line">
+                            <div style="width: 76%"></div>
+                        </div>
+                        <span>76%</span>
+                    </div>
+
+                </div>
+
+
+                <div class="subject-row">
+
+                    <div class="subject-name">
+                        <div class="round-icon blue-bg">⌘</div>
+                        <span>Web Development</span>
+                    </div>
+
+                    <div class="subject-progress">
+                        <div class="progress-line">
+                            <div style="width: 64%"></div>
+                        </div>
+                        <span>64%</span>
+                    </div>
+
+                </div>
+
+
+                <div class="subject-row">
+
+                    <div class="subject-name">
+                        <div class="round-icon peach-bg">AI</div>
+                        <span>Artificial Intelligence</span>
+                    </div>
+
+                    <div class="subject-progress">
+                        <div class="progress-line">
+                            <div style="width: 52%"></div>
+                        </div>
+                        <span>52%</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ADD TASK MODAL -->
+    <div class="modal-overlay" id="modal">
+
+        <div class="modal">
+
+            <button class="close-modal" id="closeModal">×</button>
+
+            <p class="eyebrow">NEW TASK</p>
+
+            <h2>Add a Study Task ✨</h2>
+
+            <p class="modal-subtitle">
+                Plan your next step and stay consistent.
+            </p>
+
+
+            <form id="taskForm">
+
+                <label>Task Name</label>
+                <input
+                    type="text"
+                    id="taskName"
+                    placeholder="e.g. Learn Quantum Gates"
+                    required
+                >
+
+
+                <label>Subject</label>
+                <input
+                    type="text"
+                    id="taskSubject"
+                    placeholder="e.g. Quantum Computing"
+                    required
+                >
+
+
+                <div class="form-row">
+
+                    <div>
+                        <label>Duration</label>
+
+                        <select id="taskDuration">
+                            <option>30 min</option>
+                            <option>45 min</option>
+                            <option>60 min</option>
+                            <option>90 min</option>
+                            <option>120 min</option>
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label>Priority</label>
+
+                        <select id="taskPriority">
+                            <option value="high">High</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="submit-btn">
+                    + Add Task
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOCUS MODAL -->
+    <div class="modal-overlay" id="focusModal">
+
+        <div class="focus-modal">
+
+            <button class="close-modal" id="closeFocus">×</button>
+
+            <p class="eyebrow">FOCUS SESSION</p>
+
+            <h2>Deep Work Mode 🧠</h2>
+
+            <div class="timer" id="timer">
+                25:00
+            </div>
+
+            <p class="focus-message">
+                Put your phone away.<br>
+                You've got this. ✨
+            </p>
+
+            <button class="timer-btn" id="timerBtn">
+                Start Timer
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
